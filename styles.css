@@ -30,3 +30,21 @@ h1 {
 .login-button:hover {
     filter: brightness(90%);
 }
+
+.add-book-button {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    background-color: blue;
+    color: white;
+    font-size: 2rem;
+    width: 5rem;
+    height: 5rem;
+    border: none;
+    border-radius: 5rem;
+}
+
+.add-book-button:hover {
+    filter: brightness(80%);
+    cursor: pointer;
+}
