@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    background-color: blue;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    justify-content: space-between;
+    padding: 1rem 5rem;
+}
+
+h1 {
+    font-size: 2rem;
+    color: white;
+}
+
+.login-button {
+    width: 8rem;
+    border-radius: 10px;
+    background-color: #f0eef1;
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.login-button:hover {
+    filter: brightness(90%);
+}
