@@ -1,17 +1,17 @@
 :root {
-    
+    --background-color: #4285F4;
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
 header {
     display: flex;
-    background-color: blue;
-    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
     font-weight: bold;
     justify-content: space-between;
     padding: 1rem 1rem;
@@ -40,7 +40,7 @@ h1 {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    background-color: blue;
+    background-color: var(--background-color);
     color: white;
     font-size: 2rem;
     width: 5rem;
@@ -64,18 +64,17 @@ form {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: blue;
+    background-color: var(--background-color);
     color: white;
     width: 30rem;
     height: 30rem;
     border-radius: 1rem;
-    font-family: 'Poppins', sans-serif;
     font-size: 2rem;
     gap: 10px;
 }
 
-form input[type='text'] {
-    font-family: 'Poppins', sans-serif;
+form input[type='text'],
+form input[type='number'] {
     width: 20rem;
     height: 3rem;
     border-radius: 1rem;
@@ -111,25 +110,49 @@ form input[type='text'] {
     cursor: pointer;
 }
 
+main {
+    width: 100vw;
+    height: 90vh;
+}
+
 .library {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 2rem;
 }
 
 /* javascript elemets */
 
 .book-card {
-
+    background-color: var(--background-color);
+    border-radius: 20px;
+    padding: 2rem 2rem;
+    color: white;
+    position: relative;
 }
 
 .book-title {
-
+    font-size: 36px;
+    font-weight: bold;
 }
 
-.book-author {
+.book-read-button {
+    outline: none;
+    border: white 1px solid;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    width: 6rem;
+    height: 2rem;
+    background-color: #34A853;
+    color: white;
 
+    position: absolute;
+    bottom: 1rem;
+    right: -1px;
 }
 
-.book-pages {
-    
+.book-read-button:hover {
+    filter: brightness(90%);
+    cursor: pointer;
 }

@@ -16,14 +16,26 @@ submitBookBtn.addEventListener('click', (event) => {
     read.value = ''
 });
 
-
+//myLibrary array
 const myLibrary = [];
 
+//Book constructor
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
+}
+
+//read-button method
+Book.prototype.toggleRead = function() {
+    bookRead.addEventListener('click', () => {
+        if (bookRead === true) {
+            bookRead === false
+        } else {
+            bookRead === true
+        }
+    });
 }
 
 //adds new book to array myLibrary
@@ -53,16 +65,27 @@ function showBook() {
         bookTitle.classList.add('book-title');
 
         let bookAuthor = document.createElement('p');
-        bookAuthor.innerText = `${book.author}`;
+        bookAuthor.innerText = `by ${book.author}`;
         bookAuthor.classList.add('book-author');
 
         let bookPages = document.createElement('p');
-        bookPages.innerText = `${book.pages}`;
+        bookPages.innerText = `${book.pages} pages`;
         bookPages.classList.add('book-pages');
+
+        let bookRead = document.createElement('button');
+        if (book.read === true) {
+            bookRead.innerText = 'Read';
+            bookRead.style.backgroundColor = 'green';
+        } else {
+            bookRead.innerText = 'Not Read';
+            bookRead.style.backgroundColor = 'red';
+        }
+        bookRead.classList.add('book-read-button');
 
         libraryContent.appendChild(bookCard);
         bookCard.appendChild(bookTitle);
         bookCard.appendChild(bookAuthor);
         bookCard.appendChild(bookPages);
+        bookCard.appendChild(bookRead);
     }
 }
