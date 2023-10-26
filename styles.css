@@ -110,3 +110,26 @@ form input[type='text'] {
     filter: brightness(90%);
     cursor: pointer;
 }
+
+.library {
+    display: flex;
+    flex-direction: column;
+}
+
+/* javascript elemets */
+
+.book-card {
+
+}
+
+.book-title {
+
+}
+
+.book-author {
+
+}
+
+.book-pages {
+    
+}

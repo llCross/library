@@ -34,6 +34,35 @@ function addBookToLibrary(event) {
     let read = document.querySelector('#read').checked;
     let newBook = new Book(title, author, pages, read)
     myLibrary.push(newBook);
-    console.log(myLibrary)
+    showBook();
     dialog.close();
+}
+
+//renders the books in the html
+function showBook() {
+    let libraryContent = document.querySelector('.library');
+    libraryContent.innerText = '';
+    for (let i = 0; i < myLibrary.length; i++) {
+        let book = myLibrary[i];
+
+        let bookCard = document.createElement('div');
+        bookCard.classList.add('book-card');
+
+        let bookTitle = document.createElement('p');
+        bookTitle.innerText = `${book.title}`;
+        bookTitle.classList.add('book-title');
+
+        let bookAuthor = document.createElement('p');
+        bookAuthor.innerText = `${book.author}`;
+        bookAuthor.classList.add('book-author');
+
+        let bookPages = document.createElement('p');
+        bookPages.innerText = `${book.pages}`;
+        bookPages.classList.add('book-pages');
+
+        libraryContent.appendChild(bookCard);
+        bookCard.appendChild(bookTitle);
+        bookCard.appendChild(bookAuthor);
+        bookCard.appendChild(bookPages);
+    }
 }
