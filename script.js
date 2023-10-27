@@ -32,6 +32,11 @@ Book.prototype.toggleRead = function() {
     this.read = !this.read
 }
 
+//remove book method
+Book.prototype.removeBook = function(index) {
+    myLibrary.splice(index, 1);
+}
+
 //adds new book to array myLibrary
 function addBookToLibrary(event) {
     let title = document.querySelector('#title').value;
@@ -72,9 +77,17 @@ function showBook() {
         let bookRead = document.createElement('button');
         bookRead.addEventListener('click', () => {
             myLibrary[i].toggleRead();
-            updateRead()
+            updateRead();
         });
 
+        //remove book button
+        let removeBookBtn = document.createElement('button');
+        removeBookBtn.innerText = 'x'
+        removeBookBtn.addEventListener('click', () => {
+            myLibrary[i].removeBook();
+            showBook();
+        });
+        
         //update read status
         function updateRead() {
         if (book.read === true) {
@@ -84,19 +97,20 @@ function showBook() {
             bookRead.innerText = 'Not Read';
             bookRead.style.backgroundColor = 'red';
         }
-    };
+        };
 
         //calls update read function for initial book creation
         updateRead();
-        //adds class to button for styling
+        //adds class to buttons for styling
         bookRead.classList.add('book-read-button');
-
+        removeBookBtn.classList.add('remove-book-button');
         //adds all to DOM
         libraryContent.appendChild(bookCard);
         bookCard.appendChild(bookTitle);
         bookCard.appendChild(bookAuthor);
         bookCard.appendChild(bookPages);
         bookCard.appendChild(bookRead);
+        bookCard.appendChild(removeBookBtn);
     }
 }
 
