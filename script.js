@@ -84,7 +84,8 @@ function showBook() {
         let removeBookBtn = document.createElement('button');
         removeBookBtn.innerText = 'x'
         removeBookBtn.addEventListener('click', () => {
-            myLibrary[i].removeBook();
+            const index = myLibrary.indexOf(book);
+            myLibrary[index].removeBook(index);
             showBook();
         });
         
