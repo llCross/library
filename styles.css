@@ -119,8 +119,8 @@ main {
 .library {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    padding: 2rem;
+    gap: 10px;
+    padding: 1rem;
 }
 
 /* javascript elements */
@@ -177,7 +177,5 @@ main {
 @media (max-width: 500px) {
     .library {
         grid-template-columns: 1fr;
-        gap: 10px;
-        padding: 1rem;
     }
 }
