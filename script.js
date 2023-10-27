@@ -29,13 +29,7 @@ function Book(title, author, pages, read) {
 
 //read-button method
 Book.prototype.toggleRead = function() {
-    bookRead.addEventListener('click', () => {
-        if (bookRead === true) {
-            bookRead === false
-        } else {
-            bookRead === true
-        }
-    });
+    this.read = !this.read
 }
 
 //adds new book to array myLibrary
@@ -52,8 +46,10 @@ function addBookToLibrary(event) {
 
 //renders the books in the html
 function showBook() {
+    //reference library and refreshes innerText every time
     let libraryContent = document.querySelector('.library');
     libraryContent.innerText = '';
+    //loop thru myLibrary array
     for (let i = 0; i < myLibrary.length; i++) {
         let book = myLibrary[i];
 
@@ -72,7 +68,15 @@ function showBook() {
         bookPages.innerText = `${book.pages} pages`;
         bookPages.classList.add('book-pages');
 
+        //Read = !Read button
         let bookRead = document.createElement('button');
+        bookRead.addEventListener('click', () => {
+            myLibrary[i].toggleRead();
+            updateRead()
+        });
+
+        //update read status
+        function updateRead() {
         if (book.read === true) {
             bookRead.innerText = 'Read';
             bookRead.style.backgroundColor = 'green';
@@ -80,8 +84,14 @@ function showBook() {
             bookRead.innerText = 'Not Read';
             bookRead.style.backgroundColor = 'red';
         }
+    };
+
+        //calls update read function for initial book creation
+        updateRead();
+        //adds class to button for styling
         bookRead.classList.add('book-read-button');
 
+        //adds all to DOM
         libraryContent.appendChild(bookCard);
         bookCard.appendChild(bookTitle);
         bookCard.appendChild(bookAuthor);
@@ -89,3 +99,4 @@ function showBook() {
         bookCard.appendChild(bookRead);
     }
 }
+
